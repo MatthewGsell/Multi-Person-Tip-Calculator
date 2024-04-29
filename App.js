@@ -1,12 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import { NativeRouter, Route, Link, Routes } from "react-router-native";
+import BillEntry from './pages/BillEntry';
+import CalculatorResults from './pages/CalculatorResults';
 
 export default function App() {
   return (
+    <NativeRouter>
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+        <Routes>
+        <Route path={"/"} element={<BillEntry />}/>
+        <Route path={"calculatorresults"} element={<CalculatorResults />}/>
+        </Routes>
     </View>
+    </NativeRouter>
   );
 }
 
