@@ -14,9 +14,9 @@ export default function BillEntry() {
       <View style={styles.maincontainer}>
         <View style={styles.billentrytitle}>
           <Text style={styles.titletext}>Multi Person Tip Calculator</Text>
-          <Text style={styles.titletext}>Bill Amount</Text>
+          <Text style={styles.titletext}>Bill Entry</Text>
         </View>
-
+        <Text>Bill Amount</Text>
         <TextInput
           style={styles.input}
           keyboardType="numeric"
@@ -85,14 +85,17 @@ export default function BillEntry() {
   } else {
     return (
       <View style={styles.maincontainer}>
-        <CalculatorResults />
+        <CalculatorResults bill={billAmount} tip={tipPercent} people={people} />
         <Pressable
           style={styles.resultsbutton}
           onPress={() => {
             setRenderResults(false);
+            setBillAmount(0);
+            setPeople(1);
+            setTipPercent(0);
           }}
         >
-          <Text>Get Results</Text>
+          <Text>Back</Text>
         </Pressable>
       </View>
     );
@@ -105,6 +108,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#fff",
     alignItems: "center",
     justifyContent: "center",
+    paddingBottom: "100px",
   },
   input: {
     border: "2px solid black",
@@ -120,12 +124,14 @@ const styles = StyleSheet.create({
     marginTop: "50px",
   },
   billentrytitle: {
-    marginBottom: "70px",
+    marginBottom: "40px",
     alignItems: "center",
     justifyContent: "center",
   },
   titletext: {
     fontSize: "larger",
+    fontWeight: "bolder",
     color: "blue",
+    margin: "40px",
   },
 });
