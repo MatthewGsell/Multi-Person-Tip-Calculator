@@ -22,6 +22,10 @@ export default function BillEntry() {
           keyboardType="numeric"
           placeholder="0"
           inputMode="number"
+          onFocus={(event) => {
+            event.target.value = "";
+            setBillAmount(0);
+          }}
           onChange={(event) => {
             const inputvalue = event.target.value;
             const regExp = /[0-9.]/g;
@@ -42,6 +46,10 @@ export default function BillEntry() {
           ref={peopleref}
           inputMode="numeric"
           placeholder="1"
+          onFocus={(event) => {
+            event.target.value = "";
+            setPeople(1);
+          }}
           onChange={(event) => {
             const inputvalue = event.target.value;
             const regExp = /[0-9]/g;
@@ -60,6 +68,10 @@ export default function BillEntry() {
           style={styles.input}
           inputMode="numeric"
           placeholder="0"
+          onFocus={(event) => {
+            event.target.value = "";
+            setTipPercent(0);
+          }}
           onChange={(event) => {
             const inputvalue = event.target.value;
             const regExp = /[0-9]/g;
